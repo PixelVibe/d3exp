@@ -1,0 +1,11 @@
+id	first_name	last_name	email	country	ip_address	value
+1	Justin	Tucker	jtucker@brainlounge.com	Cambodia	180.51.171.235	24
+2	Craig	Wilson	cwilson@realblab.net	Micronesia	254.198.164.216	13
+3	Walter	Torres	wtorres@fliptune.org	Ascension Island	173.195.248.98	18
+4	Gerald	Fields	gfields@photojam.name	Pitcairn Island	24.165.22.21	28
+5	Frances	Kennedy	fkennedy@skaboo.edu	Mongolia	98.237.229.69	22
+6	Juan	Simmons	jsimmons@thoughtblab.mil	Isle of Man	24.215.5.15	37
+7	Shirley	Jordan	sjordan@topicshots.mil	Heard and McDonald Islands	83.122.231.59	9
+8	Roger	Burke	rburke@realbridge.name	Vatican City State (Holy See)	83.94.133.108	15
+9	Joan	Brown	jbrown@yambee.edu	Dominican Republic	186.168.158.154	12
+10	Ruth	Kim	rkim@zoomcast.gov	Peru	6.110.19.246	9
