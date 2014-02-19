@@ -2,7 +2,7 @@ requirejs.config({
     enforceDefine: false,
     paths: {
         d3: [
-            //'//d3js.org/d3.v3.min',
+            '//d3js.org/d3.v3.min',
             '../lib/d3.min'
         ]
     }
@@ -95,12 +95,109 @@ require(['d3'], function (d3) {
 /* http://bost.ocks.org/mike/bar/3/ */
 /* ================================ */
 
+  // example without ragebands
+
   var vWidth = 960,
       vheight = 500,
       vPad = 10;
 
-  var scaleToY = d3.scale.linear().range([height, 0]);
-  
-  var vChart = d3.select('.bar-chart-3-ext').attr('width', vWidth).attr('height', vheight);
+  var scaleToY = d3.scale.linear().range([vheight, 0]);
+  var vChart   = d3.select('.bar-chart-3-ext')
+                   .attr('width', vWidth)
+                   .attr('height', vheight);
+
+  d3.tsv('../dummy/MOCK_DATA.txt', type, function(error, data)
+  {
+    scaleToY.domain([0, d3.max(data, function(d)
+    {
+      return d.value;
+    })])
+
+    var barWidth = width / data.length;
+    var bar = vChart.selectAll('g')
+                    .data(data)
+                    .enter().append('g')
+                    .attr('transform', function(d, i)
+                    {
+                      return 'translate(' + i * barWidth + ',0)';
+                    });
+    
+    bar.append('rect')
+       .attr('y', function(d){return scaleToY(d.value);})
+       .attr('height', function(d){return vheight - scaleToY(d.value);})
+       .attr('width', barWidth - 1);
+
+    bar.append('text')
+       .attr('x', barWidth / 2)
+       .attr('y', function(d)
+       {
+          return scaleToY(d.value) + 3;
+       })
+       .attr('dy', '.75em')
+       .text(function(d)
+       {
+          return d.value;
+       });
+  });
+  // end of example without ragebands
+
+  // Alphabet example with rangebands
+  var vaWidth = 960, vaHeight = 500;
+  var x = d3.scale.ordinal().rangeRoundBands([0, vaWidth], .1);
+  var y = d3.scale.linear().range([vaHeight, 0]);
+
+  var vaChart = d3.select('.bar-chart-4-ext')
+                 .attr('width', vaWidth)
+                 .attr('height', vaHeight);
+
+  d3.tsv('../dummy/alphabet.txt', type, function(error, data)
+  {
+    x.domain(data.map(function(d){ return d.name; }));
+    y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+    var vaBar = vaChart.selectAll('g')
+                       .data(data)
+                       .enter()
+                       .append('g')
+                       .attr('transform', function(d)
+                        {
+                          return 'translate(' + x(d.name) + ', 0)';
+                        });
+    vaBar.append('rect')
+         .attr('y', function(d)
+         {
+            return y(d.value);
+         })
+         .attr('height', function(d)
+         {
+            return vaHeight - y(d.value);
+         })
+         .attr('width', x.rangeBand());
+
+    vaBar.append('text')
+         .attr('x', x.rangeBand() / 2)
+         .attr('y', function(d)
+         {
+            return y(d.value) + 3;
+         })
+         .attr('dy', '.75em')
+         .text(function(d)
+         {
+            return d.name;
+         });
+
+  })
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
