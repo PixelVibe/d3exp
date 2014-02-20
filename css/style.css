@@ -29,3 +29,18 @@ h2
   font: 13px sans-serif;
   text-anchor: end;
 }
+
+.circle_tut circle
+{
+  fill: steelblue;
+}
+
+#info_screen
+{
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  border: 1px solid #c1c1c1;
+  width: 300px;
+  padding: 10px;
+}

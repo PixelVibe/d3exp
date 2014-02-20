@@ -2,26 +2,22 @@
 <html>
 <head>
   <title>Bar Chart with D3</title>
-  <script data-main="../scripts/bar_chart" src="../lib/require.js"></script>
+  <script data-main="../scripts/circles_tuts" src="../lib/require.js"></script>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="circle_tut">
 
-  <h2>Part 1 - HTML Divs</h2>
-  <div class="chart bar-chart horizontal"></div>
-  <hr>
+  <p>Selecting Elements</p>
+  <svg width="400" height="100">
+    <circle cx="24" cy="24" r="24"></circle>
+    <circle cx="104" cy="64" r="24"></circle>
+    <circle cx="184" cy="24" r="24"></circle>
+  </svg>
+  <br/>
 
-  <h2>Part 2 - SVG</h2>
-  <svg class="chart bar-chart-2 horizontal"></svg>
+  <a href='#' onclick="change_attributes">Change Attributes</a>
 
-  <h3>Part 2 - SVG - external file</h3>
-  <svg class="chart bar-chart-2-ext horizontal"></svg>
-  <hr>
-
-  <h2>Part 3 - Style &amp; axes - Vertical</h2>
-  <svg class="chart bar-chart-3-ext vertical"></svg>
-  <hr>
-  <svg class="chart bar-chart-4-ext vertical"></svg>
+  <div id="info_screen"></div>
 
 </body>
 </html>
