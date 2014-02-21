@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Bar Chart with D3</title>
-  <script data-main="../scripts/circles_tuts" src="../lib/require.js"></script>
+  <!-- <script data-main="../scripts/circles_tuts" src="../lib/require.js"></script> -->
+  <script src="../lib/d3.min.js"></script>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="circle_tut">
@@ -15,9 +16,13 @@
   </svg>
   <br/>
 
-  <a href='#' onclick="change_attributes">Change Attributes</a>
+  <a href='#' onclick="change_attributes()">Change Attributes</a><br/>
+  <a href='#' onclick="change_attributes_random()">Change Attributes Random</a><br/>
+  <a href='#' onclick="change_with_data()">Change with data</a>
 
   <div id="info_screen"></div>
+
+  <script src="../scripts/circles_tuts.js"></script>
 
 </body>
 </html>
